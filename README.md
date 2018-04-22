@@ -6,7 +6,7 @@
 2. Make sure the daemon is never stuck: `checkdaemon.sh`
 3. Clear the log file every other day: `clearlog.sh`
 
-#### Login to your vps as root, download the install.sh file and then run it:
+#### Login to your vps as root, download the install_wiremn.sh file and then run it:
 ```
 wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/install_wiremn.sh
 bash ./install_wiremn.sh
