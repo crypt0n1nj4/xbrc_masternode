@@ -2,15 +2,15 @@
 # checkdaemon.sh
 # Make sure the daemon is not stuck.
 # Add the following to the crontab (i.e. crontab -e)
-# */30 * * * * ~/smartnode/checkdaemon.sh
+# */30 * * * * ~/wirenode/checkdaemon.sh
 
-previousBlock=$(cat ~/smartnode/blockcount)
+previousBlock=$(cat ~/wirenode/blockcount)
 currentBlock=$(smartcash-cli getblockcount)
 
-smartcash-cli getblockcount > ~/smartnode/blockcount
+wire-cli getblockcount > ~/wirenode/blockcount
 
 if [ "$previousBlock" == "$currentBlock" ]; then
-  smartcash-cli stop
+  wire-cli stop
   sleep 10
-  smartcashd
+  ./wired -daemon
 fi
