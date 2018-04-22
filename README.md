@@ -12,7 +12,7 @@ wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/instal
 bash ./install_wiremn.sh
 ```
 
-#### On the client-side, add the following line to smartnode.conf:
+#### On the client-side, add the following line to masternode.conf: Masternode Private Key should be aligned between the wallet controller and VPS Wallet
 ```
 node-alias vps-ip:6520	node-key collateral-txid vout
 ```
