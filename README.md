@@ -8,7 +8,7 @@
 
 #### Login to your vps as root, download the install.sh file and then run it:
 ```
-https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/install_wiremn.sh
+wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/install_wiremn.sh
 bash ./install_wiremn.sh
 ```
 
