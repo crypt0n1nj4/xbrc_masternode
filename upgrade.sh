@@ -2,7 +2,7 @@
 # upgrade.sh
 # Make sure smartcash is up-to-date
 # Add the following to the crontab (i.e. crontab -e)
-# 0 0 */1 * * ~/smartnode/upgrade.sh
+# 0 0 */1 * * ~/wirenode/upgrade.sh
 
 apt update
 
