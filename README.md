@@ -20,3 +20,7 @@ node-alias vps-ip:6520	node-key collateral-txid vout
 
 #### Run the qt wallet, go to Masternode tab, choose your node and click "start alias" at the bottom.
 
+#### Masternode Setup Guide:
+```
+https://drive.google.com/file/d/1VPOp1zX8fUrwhLqUUhXGCu_USZ4oR-Cp/view?usp=sharing
+```
