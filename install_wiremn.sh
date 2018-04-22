@@ -1,6 +1,6 @@
 #!/bin/bash
 # install_wiremn.sh
-# Installs smartnode on Ubuntu 16.04 LTS x64
+# Installs Social Wallet WIRE masternode on Ubuntu 16.04 LTS x64
 # ATTENTION: The anti-ddos part will disable http, https and dns ports.
 
 if [ "$(whoami)" != "root" ]; then
@@ -34,7 +34,7 @@ read IGNORE
 
 cd
 
-# Get a new privatekey by going to console >> debug and typing smartnode genkey
+# Get a new privatekey by going to console >> debug and typing masternode genkey
 printf "WIRE MN GenKey: "
 read _nodePrivateKey
 
@@ -44,7 +44,7 @@ _rpcUserName=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12 ; echo '')
 # Choose a random and secure password for the RPC
 _rpcPassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 
-# Get the IP address of your vps which will be hosting the smartnode
+# Get the IP address of your vps which will be hosting the WIRE Masternode
 _nodeIpAddress=$(ip route get 1 | awk '{print $NF;exit}')
 
 # Make a new directory for wire daemon
@@ -70,7 +70,7 @@ masternodeprivkey=${_nodePrivateKey}
 " > wire.conf
 cd
 
-# Install smartcashd using apt-get
+# Install wired dependencies using apt-get
 apt-get update -y
 agt-get upgrade -y
 apt-get install -y pkg-config
@@ -99,6 +99,7 @@ cd ~/wirenode/
 # Download the appropriate scripts
 wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/makerun.sh
 wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/checkdaemon.sh
+wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/upgrade.sh
 wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/clearlog.sh
 
 
