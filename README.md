@@ -17,6 +17,5 @@ bash ./install_wiremn.sh
 node-alias vps-ip:6520	node-key collateral-txid vout
 ```
 
-#### Run the qt wallet, go to SmartNodes tab, choose your node and click "start alias" at the bottom.
+#### Run the qt wallet, go to Masternode tab, choose your node and click "start alias" at the bottom.
 
-#### You're good to go now. BEE $SMART! https://smartcash.cc
