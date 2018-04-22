@@ -77,6 +77,8 @@ add-apt-repository ppa:bitcoin/bitcoin -y
 apt-get update -y
 agt-get upgrade -y
 apt-get install libdb4.8-dev libdb4.8++-dev -y
+apt-get install libzmq3-dev -y
+apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev libgmp-dev libgmp3-dev autogen
 
 # Download the WIRE MN LINUX Daemon and CLI
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wired
