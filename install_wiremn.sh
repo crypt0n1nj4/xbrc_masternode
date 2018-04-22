@@ -81,7 +81,7 @@ apt-get install libzmq3-dev -y
 apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev libgmp-dev libgmp3-dev autogen
 apt-get install libevent-dev -y
 
-# Download the WIRE MN LINUX Daemon and CLI
+# Download the compiled WIRE MN LINUX Daemon and CLI
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wired
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wire-cli
 
@@ -110,6 +110,11 @@ fi
 # Create a cronjob for making sure wired is always running
 if ! crontab -l | grep "~/wirenode/makerun.sh"; then
   (crontab -l ; echo "*/5 * * * * ~/wirenode/makerun.sh") | crontab -
+fi
+
+# Create a cronjob for making sure wired is always up-to-date
+if ! crontab -l | grep "~/wirenode/upgrade.sh"; then
+  (crontab -l ; echo "0 0 */1 * * ~/wirenode/upgrade.sh") | crontab -
 fi
 
 # Create a cronjob for making sure the daemon is never stuck
