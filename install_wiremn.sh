@@ -47,14 +47,14 @@ _rpcPassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 # Get the IP address of your vps which will be hosting the smartnode
 _nodeIpAddress=$(ip route get 1 | awk '{print $NF;exit}')
 
-# Make a new directory for smartcash daemon
+# Make a new directory for wire daemon
 mkdir ~/.wire/
 touch ~/.wire/wire.conf
 
-# Change the directory to ~/.smartcash
+# Change the directory to ~/.wire
 cd ~/.wire/
 
-# Create the initial smartcash.conf file
+# Create the initial wire.conf file
 echo "rpcuser=${_rpcUserName}
 rpcpassword=${_rpcPassword}
 rpcallowip=127.0.0.1
@@ -64,10 +64,10 @@ daemon=1
 logtimestamps=1
 maxconnections=64
 txindex=1
-smartnode=1
+masternode=1
 externalip=${_nodeIpAddress}:6520
-smartnodeprivkey=${_nodePrivateKey}
-" > smartcash.conf
+masternodeprivkey=${_nodePrivateKey}
+" > wire.conf
 cd
 
 # Install smartcashd using apt-get
@@ -79,6 +79,7 @@ agt-get upgrade -y
 apt-get install libdb4.8-dev libdb4.8++-dev -y
 apt-get install libzmq3-dev -y
 apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev libgmp-dev libgmp3-dev autogen
+apt-get install libevent-dev
 
 # Download the WIRE MN LINUX Daemon and CLI
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wired
@@ -88,11 +89,11 @@ wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire
 chmod +x wired
 chmod +x wire-cli
 
-# Create a directory for smartnode's cronjobs and the anti-ddos script
+# Create a directory for wirenode's cronjobs and the anti-ddos script
 rm -r wirenode
 mkdir wirenode
 
-# Change the directory to ~/smartnode/
+# Change the directory to ~/wirenode/
 cd ~/wirenode/
 
 # Download the appropriate scripts
@@ -101,12 +102,12 @@ wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/checkd
 wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/clearlog.sh
 
 
-# Create a cronjob for making sure smartcashd runs after reboot
+# Create a cronjob for making sure wired runs after reboot
 if ! crontab -l | grep "@reboot ./wired -daemon"; then
   (crontab -l ; echo "@reboot ./wired -daemon") | crontab -
 fi
 
-# Create a cronjob for making sure smartcashd is always running
+# Create a cronjob for making sure wired is always running
 if ! crontab -l | grep "~/wirenode/makerun.sh"; then
   (crontab -l ; echo "*/5 * * * * ~/wirenode/makerun.sh") | crontab -
 fi
