@@ -6,11 +6,11 @@
 
 apt update
 
-if apt list --upgradable | grep -v grep | grep smartcashd > /dev/null
+if apt list --upgradable | grep -v grep | grep wired > /dev/null
 then
-  smartcash-cli stop && sleep 10
-  rm ~/.smartcash/peers.*
-  apt install smartcashd -y && smartcashd&
+  wire-cli stop && sleep 10
+  rm ~/.wire/peers.*
+  apt install wired -y && ./wired -daemon &
 else
   exit
 fi
