@@ -81,6 +81,10 @@ apt-get install libdb4.8-dev libdb4.8++-dev -y
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wired
 wget https://raw.githubusercontent.com/crypt0n1nj4/social_wallet_masternode_wire/master/wire-cli
 
+# Make the WIRE MN LINUX Daemon and CLI executable
+chmod +x wired
+chmod +x wire-cli
+
 # Create a directory for smartnode's cronjobs and the anti-ddos script
 rm -r wirenode
 mkdir wirenode
