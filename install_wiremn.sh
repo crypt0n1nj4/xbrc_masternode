@@ -75,6 +75,7 @@ apt-get install -y pkg-config
 apt-get -y install build-essential autoconf automake libtool libboost-all-dev libgmp-dev libssl-dev libcurl4-openssl-dev git 
 add-apt-repository ppa:bitcoin/bitcoin -y
 apt-get update -y
+agt-get upgrade -y
 apt-get install libdb4.8-dev libdb4.8++-dev -y
 
 # Download the WIRE MN LINUX Daemon and CLI
