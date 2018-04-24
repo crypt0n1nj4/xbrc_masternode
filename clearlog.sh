@@ -2,6 +2,6 @@
 # clearlog.sh
 # Clear debug.log every other day
 # Add the following to the crontab (i.e. crontab -e)
-# 0 0 */2 * * ~/wirenode/clearlog.sh
+# 0 0 */2 * * ~/xbrnode/clearlog.sh
 
-/bin/date > ~/.wire/debug.log
+/bin/date > ~/.xbitrewards/debug.log
