@@ -82,14 +82,13 @@ apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev 
 apt-get install libevent-dev -y
 
 # Compile secp256k1
-git clone https://github.com/bitcoin-core/secp256k1.git
-cd secp256k1
+git clone https://github.com/BitRewardsCoin/BitRewards.git
+cd ~/ BitRewards/src/secp256k1
 ./autogen.sh
 ./configure
 make
 make install
 ldconfig
-
 cd
 
 # Download the compiled XBR MN LINUX Daemon and CLI
