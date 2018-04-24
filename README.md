@@ -1,4 +1,4 @@
-# Social BitRewards XBR Masternode
+# BitRewards XBR Masternode
 ### Bash installer for XBR Masternode on Ubuntu 16.04 LTS x64
 
 #### This shell script comes with 4 cronjobs: 
@@ -9,7 +9,7 @@
 
 #### Login to your vps as root, download the install_xbrmn.sh file and then run it:
 ```
-wget https://raw.githubusercontent.com/crypt0n1nj4/wire_masternode/master/install_xbrmn.sh
+wget https://raw.githubusercontent.com/crypt0n1nj4/xbr_masternode/master/install_xbrmn.sh
 bash ./install_xbrmn.sh
 ```
 
