@@ -1,16 +1,16 @@
 #!/bin/bash
 # upgrade.sh
-# Make sure smartcash is up-to-date
+# Make sure bitrewardsd is up-to-date
 # Add the following to the crontab (i.e. crontab -e)
-# 0 0 */1 * * ~/wirenode/upgrade.sh
+# 0 0 */1 * * ~/xbrnode/upgrade.sh
 
 apt update
 
-if apt list --upgradable | grep -v grep | grep wired > /dev/null
+if apt list --upgradable | grep -v grep | grep bitrewardsd > /dev/null
 then
-  wire-cli stop && sleep 10
-  rm ~/.wire/peers.*
-  apt install wired -y && ./wired -daemon &
+  bitrewardsd stop && sleep 10
+  rm ~/.xbitrewards/peers.*
+  apt install bitrewardsd -y && ./bitrewardsd -daemon &
 else
   exit
 fi
