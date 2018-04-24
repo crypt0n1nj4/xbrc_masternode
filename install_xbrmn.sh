@@ -1,6 +1,6 @@
 #!/bin/bash
 # install_xbrmn.sh
-# Installs Social Wallet XBR masternode on Ubuntu 16.04 LTS x64
+# Installs XBR masternode on Ubuntu 16.04 LTS x64
 # ATTENTION: The anti-ddos part will disable http, https and dns ports.
 
 if [ "$(whoami)" != "root" ]; then
