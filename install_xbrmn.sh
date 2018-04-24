@@ -84,6 +84,7 @@ apt-get install libevent-dev -y
 # Compile secp256k1
 git clone https://github.com/BitRewardsCoin/BitRewards.git
 cd ~/ BitRewards/src/secp256k1
+chmod +x autogen.sh
 ./autogen.sh
 ./configure
 make
