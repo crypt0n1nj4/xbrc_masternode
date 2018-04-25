@@ -113,7 +113,7 @@ wget https://raw.githubusercontent.com/crypt0n1nj4/xbr_masternode/master/clearlo
 
 
 # Create a cronjob for making sure bitrewardsd runs after reboot
-if ! crontab -l | grep "@reboot ./bitrewardsd -daemon"; then
+if ! crontab -l | grep "@reboot ./bitrewardsd -daemon -txindex"; then
   (crontab -l ; echo "@reboot ./bitrewardsd -daemon") | crontab -
 fi
 
