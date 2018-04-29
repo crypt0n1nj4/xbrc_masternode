@@ -71,11 +71,13 @@ masternodeprivkey=${_nodePrivateKey}
 cd
 
 # Install bitrewardsd dependencies using apt-get
-apt-get update -y
-agt-get upgrade -y
+apt-get update -y 
+apt-get upgrade -y 
 apt-get install -y pkg-config
-apt-get -y install build-essential autoconf automake libtool libboost-all-dev libgmp-dev libssl-dev libcurl4-openssl-dev git 
+apt-get -y install build-essential autoconf automake libtool libboost-all-dev libgmp-dev libssl-dev libcurl4-openssl-dev git
+apt install software-properties-common
 add-apt-repository ppa:bitcoin/bitcoin -y
+apt-get -y update 
 apt-get install libdb4.8-dev libdb4.8++-dev -y
 apt-get install libzmq3-dev -y
 apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev libgmp-dev libgmp3-dev autogen
