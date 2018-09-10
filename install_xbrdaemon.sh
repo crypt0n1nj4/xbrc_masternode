@@ -55,9 +55,8 @@ listen=1
 server=1
 daemon=1
 logtimestamps=1
-maxconnections=256
+maxconnections=512
 txindex=1
-masternode=1
 externalip=${_nodeIpAddress}:2721
 " > bitrewards.conf
 cd
