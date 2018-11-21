@@ -1,6 +1,6 @@
 #!/bin/bash
 # install_mn.sh
-# Installs XBR daemon on Ubuntu 16.04 LTS x64
+# Installs XBRC daemon on Ubuntu 16.04 LTS x64
 
 
 if [ "$(whoami)" != "root" ]; then
