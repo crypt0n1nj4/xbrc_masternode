@@ -1,5 +1,5 @@
 #!/bin/bash
-# install_xbrdaemon.sh
+# install_mn.sh
 # Installs XBR daemon on Ubuntu 16.04 LTS x64
 
 
@@ -9,13 +9,13 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 while true; do
- if [ -d ~/.xbitrewards ]; then
-   printf "~/.xbitrewards/ already exists! The installer will delete this folder. Continue anyway?(Y/n)"
+ if [ -d ~/.Bitrewards ]; then
+   printf "~/.Bitrewards/ already exists! The installer will delete this folder. Continue anyway?(Y/n)"
    read REPLY
    if [ ${REPLY} == "Y" ]; then
-      pID=$(ps -ef | grep bitrewardsd | awk '{print $2}')
+      pID=$(ps -ef | grep Bitrewardsd | awk '{print $2}')
       kill ${pID}
-      rm -rf ~/.xbitrewards/
+      rm -rf ~/.Bitrewards/
       break
    else
       if [ ${REPLY} == "n" ]; then
@@ -41,13 +41,13 @@ _rpcPassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 _nodeIpAddress=$(ip route get 1 | awk '{print $NF;exit}')
 
 # Make a new directory for XBR daemon
-mkdir ~/.xbitrewards/
-touch ~/.xbitrewards/bitrewards.conf
+mkdir ~/.Bitrewards/
+touch ~/.Bitrewards/Bitrewards.conf
 
-# Change the directory to ~/.xbitrewards
-cd ~/.xbitrewards/
+# Change the directory to ~/.Bitrewards
+cd ~/.Bitrewards/
 
-# Create the initial bitrewards.conf file
+# Create the initial Bitrewards.conf file
 echo "rpcuser=${_rpcUserName}
 rpcpassword=${_rpcPassword}
 rpcallowip=127.0.0.1
@@ -57,11 +57,11 @@ daemon=1
 logtimestamps=1
 maxconnections=512
 txindex=1
-externalip=${_nodeIpAddress}:2721
-" > bitrewards.conf
+externalip=${_nodeIpAddress}:24001
+" > Bitrewards.conf
 cd
 
-# Install bitrewardsd dependencies using apt-get
+# Install Bitrewardsd dependencies using apt-get
 apt-get update -y 
 apt-get upgrade -y 
 apt-get install -y pkg-config
@@ -74,32 +74,21 @@ apt-get install libzmq3-dev -y
 apt-get -y install libdb++-dev libboost-all-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev libgmp-dev libgmp3-dev autogen
 apt-get install libevent-dev -y
 
-# Compile secp256k1
-git clone https://github.com/BitRewardsCoin/BitRewards.git
-cd ~/BitRewards/src/secp256k1
-chmod +x autogen.sh
-./autogen.sh
-./configure
-make
-make install
-ldconfig
-cd
-
 # Download the compiled XBR MN LINUX Daemon and CLI
-wget https://raw.githubusercontent.com/crypt0n1nj4/xbr_masternode/master/bitrewardsd
+wget https://github.com/BitRewardscoinnew/BitRewards-Core/raw/master/Bitrewardsd
 
 # Make the XBR MN LINUX Daemon and CLI executable
-chmod +x bitrewardsd
+chmod +x Bitrewardsd
 
 # Copy to USR/BIN
-cp bitrewardsd /usr/bin
+cp Bitrewardsd /usr/bin
 
 # Run the daemon
-bitrewardsd -daemon -txindex
+Bitrewardsd -daemon -txindex
 
 
-# Create a cronjob for making sure bitrewardsd runs after reboot
-if ! crontab -l | grep "@reboot bitrewardsd -daemon -txindex"; then
-  (crontab -l ; echo "@reboot bitrewardsd -daemon -txindex") | crontab -
+# Create a cronjob for making sure Bitrewardsd runs after reboot
+if ! crontab -l | grep "@reboot Bitrewardsd -daemon -txindex"; then
+  (crontab -l ; echo "@reboot Bitrewardsd -daemon -txindex") | crontab -
 fi
 
