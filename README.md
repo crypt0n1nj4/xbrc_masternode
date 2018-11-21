@@ -11,7 +11,7 @@ bash ./install_mn.sh
 
 #### On the client-side, add the following line to masternode.conf: Masternode Private Key should be aligned between the wallet controller and VPS Wallet
 ```
-node-alias vps-ip:28001	node-key collateral-txid vout
+node-alias vps-ip:24001	node-key collateral-txid vout
 ```
 
 #### Run the qt wallet, go to Masternode tab, choose your node and click "start alias" at the bottom.
